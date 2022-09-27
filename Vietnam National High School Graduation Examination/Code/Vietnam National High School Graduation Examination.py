@@ -15,6 +15,7 @@ examination_dataset.info()
 examination_dataset.describe()
 
 "Visualization for the information of dataset with graph"
+# Check heatmap for the dataset
 plt.figure(figsize = (20, 15))
 sns.set(font_scale = 1.3)
 sns.heatmap(examination_dataset[["id_examinee","Math", "Physics", "Chemistry", "History", "Biology", "Geography", 
@@ -39,6 +40,7 @@ Russian = examination_dataset["Russian"]
 French = examination_dataset["French"]
 Japanese = examination_dataset["Japanese"]
 
+# Visualizing for all columns
 plt.figure(figsize = (20, 15))
 sns.set(font_scale = 1.4)
 dataset = pd.DataFrame(data = examination_dataset, columns = ["Math", "Physics", "Chemistry", "History", "Biology", "Geography", 
@@ -47,4 +49,14 @@ boxplot_dataset = sns.boxplot(x="variable", y="value", data=pd.melt(dataset), sh
 boxplot_dataset.set_xlabel("Subjects")
 boxplot_dataset.set_ylabel("Marks")
 plt.title("Destiny for mark of the Graduation Examination")
+plt.show()
+
+# Visualizing for columns of foreign language
+plt.figure(figsize = (20, 15))
+sns.set(font_scale = 1.4)
+dataset = pd.DataFrame(data = examination_dataset, columns = ["English", "German", "Chinese", "Russian", "Japanese", "French"])
+boxplot_dataset = sns.boxplot(x="variable", y="value", data=pd.melt(dataset), showfliers = False)
+boxplot_dataset.set_xlabel("Subjects")
+boxplot_dataset.set_ylabel("Marks")
+plt.title("Boxplot for Foreign Languages")
 plt.show()
