@@ -60,3 +60,8 @@ boxplot_dataset.set_xlabel("Subjects")
 boxplot_dataset.set_ylabel("Marks")
 plt.title("Boxplot for Foreign Languages")
 plt.show()
+
+"Dropping Data"
+# Drooping and Cleaning the dataset of columns Math
+math_papers = examination_dataset[["Math"]]
+math_papers
