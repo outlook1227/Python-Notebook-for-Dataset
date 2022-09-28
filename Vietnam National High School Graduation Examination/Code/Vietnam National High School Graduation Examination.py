@@ -125,3 +125,24 @@ print("Social Science:", sum_of_SS)
 # Null information
 sum_of_Null = sum(examination_dataset.id_examinee >= 0) - sum_of_NS - sum_of_SS
 print("Null:", sum_of_Null)
+
+# Count the number has score 10
+math_10_score = sum(examination_dataset.Math == 10)
+literature_10_score = sum(examination_dataset.Literature == 10)
+english_10_score = sum(examination_dataset.English == 10)
+physics_10_score = sum(examination_dataset.Physics == 10)
+chemistry_10_score = sum(examination_dataset.Chemistry == 10)
+biology_10_score = sum(examination_dataset.Biology == 10)
+history_10_score = sum(examination_dataset.History == 10)
+geography_10_score = sum(examination_dataset.Geography == 10)
+civic_education_10_score = sum(examination_dataset.Civic_Education == 10)
+
+print("Number of examniee take 10 score Math papers:", math_10_score)
+print("Number of examniee take 10 score Literature papers:", literature_10_score)
+print("Number of examniee take 10 score English papers:", english_10_score)
+print("Number of examniee take 10 score Physics papers:", physics_10_score)
+print("Number of examniee take 10 score Chemistry papers:", chemistry_10_score)
+print("Number of examniee take 10 score Biology papers:", biology_10_score)
+print("Number of examniee take 10 score History papers:", history_10_score)
+print("Number of examniee take 10 score Geography papers:", geography_10_score)
+print("Number of examniee take 10 score Civic Education papers:", civic_education_10_score)
