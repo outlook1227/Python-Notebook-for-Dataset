@@ -90,6 +90,29 @@ chemistry_papers
 chemistry_dataset_cleaned = chemistry_papers.dropna()
 chemistry_dataset_cleaned
 
+"Calculate the GPA of papers in Graduation Examination"
+
+# Average of each papers
+math_average = np.average(math_dataset_cleaned)
+physics_average = np.average(physics_dataset_cleaned)
+chemistry_average = np.average(chemistry_dataset_cleaned)
+english_average = np.average(english_dataset_cleaned)
+literature_average = np.average(literature_dataset_cleaned)
+history_average = np.average(history_dataset_cleaned)
+geography_average = np.average(geography_dataset_cleaned)
+civic_education_average = np.average(civic_education_dataset_cleaned)
+
+# Print and result
+print("The GPA of Maths: ", round(math_average, 2))
+print("The GPA of Physics: ", round(physics_average, 2))
+print("The GPA of Chemistry: ", round(chemistry_average, 2))
+print("The GPA of English: ", round(english_average, 2))
+print("The GPA of Literature: ", round(literature_average, 2))
+print("The GPA of History: ", round(history_average, 2))
+print("The GPA of Geography: ", round(geography_average, 2))
+print("The GPA of Civic Education: ", round(civic_education_average, 2))
+"Count the none-null value in Social Sciene, Natural Science, and null values"
+
 "Count the none-null value in Social Sciene, Natural Science, and null values"
 # Natural Science
 sum_of_NS = sum((examination_dataset.Physics >= 0) | (examination_dataset.Chemistry >= 0) | (examination_dataset.Biology >= 0))
