@@ -47,7 +47,7 @@ dataset = pd.DataFrame(data = examination_dataset, columns = ["Math", "Physics",
                         "Literature", "Civic_Education", "English"])
 boxplot_dataset = sns.boxplot(x="variable", y="value", data=pd.melt(dataset), showfliers = False)
 boxplot_dataset.set_xlabel("Subjects")
-boxplot_dataset.set_ylabel("Marks")
+boxplot_dataset.set_ylabel("Score")
 plt.title("Destiny for mark of the Graduation Examination")
 plt.show()
 
@@ -57,7 +57,7 @@ sns.set(font_scale = 1.4)
 dataset = pd.DataFrame(data = examination_dataset, columns = ["English", "German", "Chinese", "Russian", "Japanese", "French"])
 boxplot_dataset = sns.boxplot(x="variable", y="value", data=pd.melt(dataset), showfliers = False)
 boxplot_dataset.set_xlabel("Subjects")
-boxplot_dataset.set_ylabel("Marks")
+boxplot_dataset.set_ylabel("Score")
 plt.title("Boxplot for Foreign Languages")
 plt.show()
 
