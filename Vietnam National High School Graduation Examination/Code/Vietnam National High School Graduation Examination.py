@@ -65,3 +65,40 @@ plt.show()
 # Drooping and Cleaning the dataset of columns Math
 math_papers = examination_dataset[["Math"]]
 math_papers
+
+math_dataset_cleaned = math_papers.dropna()
+math_dataset_cleaned
+
+# Physics
+physics_papers = examination_dataset[["Physics"]]
+physics_papers
+
+physics_dataset_cleaned = physics_papers.dropna()
+physics_dataset_cleaned
+
+# English
+english_papers = examination_dataset[["English"]]
+english_papers
+
+english_dataset_cleaned = english_papers.dropna()
+english_dataset_cleaned
+
+# Chemistry
+chemistry_papers = examination_dataset[["Chemistry"]]
+chemistry_papers
+
+chemistry_dataset_cleaned = chemistry_papers.dropna()
+chemistry_dataset_cleaned
+
+"Count the none-null value in Social Sciene, Natural Science, and null values"
+# Natural Science
+sum_of_NS = sum((examination_dataset.Physics >= 0) | (examination_dataset.Chemistry >= 0) | (examination_dataset.Biology >= 0))
+print("Natural Science:",sum_of_NS)
+
+# Social Science
+sum_of_SS = sum((examination_dataset.History >= 0) | (examination_dataset.Geography >= 0) | (examination_dataset.Civic_Education >= 0))
+print("Social Science:", sum_of_SS)
+
+# Null information
+sum_of_Null = sum(examination_dataset.id_examinee >= 0) - sum_of_NS - sum_of_SS
+print("Null:", sum_of_Null)
