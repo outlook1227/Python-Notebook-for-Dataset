@@ -155,6 +155,25 @@ history_10_score = sum(examination_dataset.History == 10)
 geography_10_score = sum(examination_dataset.Geography == 10)
 civic_education_10_score = sum(examination_dataset.Civic_Education == 10)
 
+labels_10_score = ["Math", "Literature", "English", "Physics", "Chemistry", "Biology", "History",
+                    "Geography", "Civic Education"]
+counts_10_score = [math_10_score, literature_10_score, english_10_score, physics_10_score, chemistry_10_score,
+                    biology_10_score, history_10_score, geography_10_score, civic_education_10_score]
+
+plt.figure(figsize = (20, 15))
+sns.set(font_scale = 1.35)
+score_10_grouped = plt.bar(labels_10_score, counts_10_score, color = "#00A3FF")
+
+for counts_10 in score_10_grouped.patches:
+  height = counts_10.get_height()
+  label_x = counts_10.get_x() + counts_10.get_width() / 2
+  label_y = counts_10.get_y() / height + height
+  plt.text(label_x, label_y, s = f"{height:}", ha='center', va='bottom', color = "black", size = 15)
+
+plt.xlabel("Subjects")
+plt.ylabel("Occurences")
+plt.title("10 Point Distributions")
+
 print("Number of examniee take 10 score Math papers:", math_10_score)
 print("Number of examniee take 10 score Literature papers:", literature_10_score)
 print("Number of examniee take 10 score English papers:", english_10_score)
