@@ -207,8 +207,15 @@ plt.figure(figsize = (28, 20))
 sns.set(font_scale = 1.45)
 history_sns = sns.countplot(examination_dataset.History)
 history_sns.set_xticklabels(history_sns.get_xticklabels(), rotation = 45)
-plt.xlabel("Occurrences", fontsize = 22.5)
-plt.ylabel("Score", fontsize = 22.5)
+
+for counts in history_sns.patches:
+  height = counts.get_height()
+  label_x = counts.get_x() + counts.get_width() / 2
+  label_y = counts.get_y() / height + height
+  plt.text(label_x, label_y, s = f"{height:}", ha='center', va='bottom', color = "black", size = 15, rotation = 90)
+
+plt.xlabel("Occurrences", fontsize = 20.5)
+plt.ylabel("Score", fontsize = 20.5)
 plt.title("History Score Distribution", fontsize = 22.5)
 
 # Count the examiee has failed for Graduation Examination
