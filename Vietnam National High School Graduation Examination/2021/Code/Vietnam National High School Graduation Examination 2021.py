@@ -61,8 +61,8 @@ boxplot_dataset.set_ylabel("Score")
 plt.title("Boxplot for Foreign Languages")
 plt.show()
 
-"Dropping Data"
-# Drooping and Cleaning the dataset of columns Math
+"Dropping and Cleaning for the Dataset"
+# Math
 math_papers = examination_dataset[["Math"]]
 math_papers
 
@@ -89,6 +89,20 @@ chemistry_papers
 
 chemistry_dataset_cleaned = chemistry_papers.dropna()
 chemistry_dataset_cleaned
+
+# Biology
+biology_papers = examination_dataset[["Biology"]]
+biology_papers
+
+biology_dataset_cleaned = biology_papers.dropna()
+biology_dataset_cleaned
+
+# Literature
+literature_papers = examination_dataset[["Literature"]]
+literature_papers
+
+literature_dataset_cleaned = literature_papers.dropna()
+literature_dataset_cleaned
 
 "Calculate the GPA of papers in Graduation Examination"
 
@@ -160,6 +174,19 @@ labels_10_score = ["Math", "Literature", "English", "Physics", "Chemistry", "Bio
 counts_10_score = [math_10_score, literature_10_score, english_10_score, physics_10_score, chemistry_10_score,
                     biology_10_score, history_10_score, geography_10_score, civic_education_10_score]
 
+plt.figure(figsize = (20, 15))
+sns.set(font_scale = 1.35)
+score_10_grouped = plt.bar(labels_10_score, counts_10_score, color = "#00A3FF")
+
+for counts_10 in score_10_grouped.patches:
+  height = counts_10.get_height()
+  label_x = counts_10.get_x() + counts_10.get_width() / 2
+  label_y = counts_10.get_y() / height + height
+  plt.text(label_x, label_y, s = f"{height:}", ha='center', va='bottom', color = "black", size = 15)
+
+plt.xlabel("Subjects")
+plt.ylabel("Occurences")
+plt.title("10 Point Distributions")
 # Visualization for score maximum
 plt.figure(figsize = (20, 15))
 sns.set(font_scale = 1.35)
@@ -175,7 +202,23 @@ plt.xlabel("Subjects")
 plt.ylabel("Occurences")
 plt.title("10 Point Distributions")
 
-# Count of the current of English score
+# Count the occurence of Math score
+plt.figure(figsize = (28, 20))
+sns.set(font_scale = 1.5)
+math_sns = sns.countplot(examination_dataset.Math)
+math_sns.set_xticklabels(math_sns.get_xticklabels(), rotation = 45)
+
+for counts in math_sns.patches:
+  height = counts.get_height()
+  label_x = counts.get_x() + counts.get_width() / 2
+  label_y = counts.get_y() / height + height
+  plt.text(label_x, label_y, s = f"{height:}", ha='center', va='bottom', color = "black", size = 15, rotation = 90)
+
+plt.xlabel("Score", fontsize = 20.5)
+plt.ylabel("Occurrences", fontsize = 20.5)
+plt.title("Math Score Distribution", fontsize = 22.5)
+
+# Count the occurence of English score
 plt.figure(figsize = (28, 20))
 sns.set(font_scale = 1.5)
 english_sns = sns.countplot(examination_dataset.English)
@@ -184,25 +227,41 @@ plt.xlabel("Occurrences", fontsize = 22.5)
 plt.ylabel("Score", fontsize = 22.5)
 plt.title("English Score Distribution", fontsize = 22.5)
 
-# Count of the current of Physics score
+# Count the occurence of Physics score
 plt.figure(figsize = (28, 20))
 sns.set(font_scale = 1.45)
 physics_sns = sns.countplot(examination_dataset.Physics)
 physics_sns.set_xticklabels(physics_sns.get_xticklabels(), rotation = 45)
-plt.xlabel("Occurrences", fontsize = 22.5)
-plt.ylabel("Score", fontsize = 22.5)
+plt.xlabel("Score", fontsize = 20.5)
+plt.ylabel("Occurrences", fontsize = 20.5)
 plt.title("Physics Score Distribution", fontsize = 22.5)
 
-# Count of the current of Chemistry score
+# Count the occurence of Chemistry score
 plt.figure(figsize = (28, 20))
 sns.set(font_scale = 1.45)
 chemistry_sns = sns.countplot(examination_dataset.Chemistry)
 chemistry_sns.set_xticklabels(chemistry_sns.get_xticklabels(), rotation = 45)
-plt.xlabel("Occurrences", fontsize = 22.5)
-plt.ylabel("Score", fontsize = 22.5)
+plt.xlabel("Score", fontsize = 20.5)
+plt.ylabel("Occurrences", fontsize = 20.5)
 plt.title("Chemistry Score Distribution", fontsize = 22.5)
 
-# Count of the current of History score
+# Count the occurence of Biology score
+plt.figure(figsize = (28, 20))
+sns.set(font_scale = 1.45)
+biology_sns = sns.countplot(examination_dataset.Biology)
+biology_sns.set_xticklabels(biology_sns.get_xticklabels(), rotation = 45)
+
+for counts in biology_sns.patches:
+  height = counts.get_height()
+  label_x = counts.get_x() + counts.get_width() / 2
+  label_y = counts.get_y() / height + height
+  plt.text(label_x, label_y, s = f"{height:}", ha='center', va='bottom', color = "black", size = 15, rotation = 90)
+
+plt.xlabel("Score", fontsize = 20.5)
+plt.ylabel("Occurrences", fontsize = 20.5)
+plt.title("Biology Score Distribution", fontsize = 22.5)
+
+# Count the occurence of History score
 plt.figure(figsize = (28, 20))
 sns.set(font_scale = 1.45)
 history_sns = sns.countplot(examination_dataset.History)
@@ -214,11 +273,11 @@ for counts in history_sns.patches:
   label_y = counts.get_y() / height + height
   plt.text(label_x, label_y, s = f"{height:}", ha='center', va='bottom', color = "black", size = 15, rotation = 90)
 
-plt.xlabel("Occurrences", fontsize = 20.5)
-plt.ylabel("Score", fontsize = 20.5)
+plt.xlabel("Score", fontsize = 20.5)
+plt.ylabel("Occurrences", fontsize = 20.5)
 plt.title("History Score Distribution", fontsize = 22.5)
 
-# Count of the current of Geography score
+# Count the occurence of Geography score
 plt.figure(figsize = (28, 20))
 sns.set(font_scale = 1.45)
 geography_sns = sns.countplot(examination_dataset.Geography)
@@ -230,8 +289,8 @@ for counts in geography_sns.patches:
   label_y = counts.get_y() / height + height
   plt.text(label_x, label_y, s = f"{height:}", ha='center', va='bottom', color = "black", size = 15, rotation = 90)
 
-plt.xlabel("Occurrences", fontsize = 20.5)
-plt.ylabel("Score", fontsize = 20.5)
+plt.xlabel("Score", fontsize = 20.5)
+plt.ylabel("Occurrences", fontsize = 20.5)
 plt.title("Geography Score Distribution", fontsize = 22.5)
 
 # Count the examiee has failed for Graduation Examination
