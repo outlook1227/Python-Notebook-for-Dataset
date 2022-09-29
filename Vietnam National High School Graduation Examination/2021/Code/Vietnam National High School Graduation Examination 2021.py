@@ -415,3 +415,27 @@ for counts_nope in failed_grouped.patches:
 plt.xlabel("Subjects", fontsize = 22.5)
 plt.ylabel("Occurences", fontsize = 22.5)
 plt.title("Failure Point Distributions", fontsize = 22.5)
+
+# Count the examiiees has selected the foregin language others
+sum_of_french = sum(examination_dataset.French >= 0)
+sum_of_russian = sum(examination_dataset.Russian >= 0)
+sum_of_chinese = sum(examination_dataset.Chinese >= 0)
+sum_of_german = sum(examination_dataset.German >= 0)
+sum_of_japanese = sum(examination_dataset.Japanese >= 0)
+
+labels_foreign_languages = ["French", "Russian", "Chinese", "German", "Japanese"]
+counts_foreign_languages = [sum_of_french, sum_of_russian, sum_of_chinese, sum_of_german, sum_of_japanese]
+
+plt.figure(figsize = (20, 15))
+sns.set(font_scale = 1.45)
+foreign_languages = plt.bar(labels_foreign_languages, counts_foreign_languages, color = "#51CEEE")
+
+for counts_other_language in foreign_languages.patches:
+  height = counts_other_language.get_height()
+  label_x = counts_other_language.get_x() + counts_other_language.get_width() / 2
+  label_y = counts_other_language.get_y() / height + height
+  plt.text(label_x, label_y, s = f"{height:}", ha='center', va='bottom', color = "black", size = 15)
+
+plt.xlabel("Subjects")
+plt.ylabel("Occurences")
+plt.title("Number of examiee has selected the foreign language others")
