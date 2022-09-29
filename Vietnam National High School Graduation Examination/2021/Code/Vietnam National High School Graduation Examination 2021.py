@@ -164,3 +164,21 @@ print("Number of examniee take 10 score Biology papers:", biology_10_score)
 print("Number of examniee take 10 score History papers:", history_10_score)
 print("Number of examniee take 10 score Geography papers:", geography_10_score)
 print("Number of examniee take 10 score Civic Education papers:", civic_education_10_score)
+
+# Count of the current of English score
+plt.figure(figsize = (28, 20))
+sns.set(font_scale = 1.5)
+english_sns = sns.countplot(examination_dataset.English)
+english_sns.set_xticklabels(english_sns.get_xticklabels(), rotation = 45)
+plt.xlabel("Occurrences")
+plt.ylabel("Score")
+plt.title("English Score Distribution", fontsize = 22.5)
+
+# Count of the current of Physics score
+plt.figure(figsize = (28, 20))
+sns.set(font_scale = 1.45)
+physics_sns = sns.countplot(examination_dataset.Physics)
+physics_sns.set_xticklabels(physics_sns.get_xticklabels(), rotation = 45)
+plt.xlabel("Occurrences")
+plt.ylabel("Score")
+plt.title("Physics Score Distribution", fontsize = 20)
