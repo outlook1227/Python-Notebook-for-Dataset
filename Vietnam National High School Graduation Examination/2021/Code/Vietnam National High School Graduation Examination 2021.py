@@ -160,16 +160,6 @@ labels_10_score = ["Math", "Literature", "English", "Physics", "Chemistry", "Bio
 counts_10_score = [math_10_score, literature_10_score, english_10_score, physics_10_score, chemistry_10_score,
                     biology_10_score, history_10_score, geography_10_score, civic_education_10_score]
 
-print("Number of examniee take 10 score Math papers:", math_10_score)
-print("Number of examniee take 10 score Literature papers:", literature_10_score)
-print("Number of examniee take 10 score English papers:", english_10_score)
-print("Number of examniee take 10 score Physics papers:", physics_10_score)
-print("Number of examniee take 10 score Chemistry papers:", chemistry_10_score)
-print("Number of examniee take 10 score Biology papers:", biology_10_score)
-print("Number of examniee take 10 score History papers:", history_10_score)
-print("Number of examniee take 10 score Geography papers:", geography_10_score)
-print("Number of examniee take 10 score Civic Education papers:", civic_education_10_score)
-
 # Visualization for score maximum
 plt.figure(figsize = (20, 15))
 sns.set(font_scale = 1.35)
@@ -190,8 +180,8 @@ plt.figure(figsize = (28, 20))
 sns.set(font_scale = 1.5)
 english_sns = sns.countplot(examination_dataset.English)
 english_sns.set_xticklabels(english_sns.get_xticklabels(), rotation = 45)
-plt.xlabel("Occurrences")
-plt.ylabel("Score")
+plt.xlabel("Occurrences", fontsize = 22.5)
+plt.ylabel("Score", fontsize = 22.5)
 plt.title("English Score Distribution", fontsize = 22.5)
 
 # Count of the current of Physics score
@@ -199,6 +189,55 @@ plt.figure(figsize = (28, 20))
 sns.set(font_scale = 1.45)
 physics_sns = sns.countplot(examination_dataset.Physics)
 physics_sns.set_xticklabels(physics_sns.get_xticklabels(), rotation = 45)
-plt.xlabel("Occurrences")
-plt.ylabel("Score")
-plt.title("Physics Score Distribution", fontsize = 20)
+plt.xlabel("Occurrences", fontsize = 22.5)
+plt.ylabel("Score", fontsize = 22.5)
+plt.title("Physics Score Distribution", fontsize = 22.5)
+
+# Count of the current of Chemistry score
+plt.figure(figsize = (28, 20))
+sns.set(font_scale = 1.45)
+chemistry_sns = sns.countplot(examination_dataset.Chemistry)
+chemistry_sns.set_xticklabels(chemistry_sns.get_xticklabels(), rotation = 45)
+plt.xlabel("Occurrences", fontsize = 22.5)
+plt.ylabel("Score", fontsize = 22.5)
+plt.title("Chemistry Score Distribution", fontsize = 22.5)
+
+# Count of the current of History score
+plt.figure(figsize = (28, 20))
+sns.set(font_scale = 1.45)
+history_sns = sns.countplot(examination_dataset.History)
+history_sns.set_xticklabels(history_sns.get_xticklabels(), rotation = 45)
+plt.xlabel("Occurrences", fontsize = 22.5)
+plt.ylabel("Score", fontsize = 22.5)
+plt.title("History Score Distribution", fontsize = 22.5)
+
+# Count the examiee has failed for Graduation Examination
+math_failed = sum(examination_dataset.Math <= 1.0)
+literature_failed = sum(examination_dataset.Literature <= 1.0)
+english_failed = sum(examination_dataset.English <= 1.0)
+physics_failed = sum(examination_dataset.Physics <= 1.0)
+chemistry_failed = sum(examination_dataset.Chemistry <= 1.0)
+biology_failed = sum(examination_dataset.Biology <= 1.0)
+history_failed = sum(examination_dataset.History <= 1.0)
+geography_failed = sum(examination_dataset.Geography <= 1.0)
+civic_education_failed = sum(examination_dataset.Civic_Education <= 1.0)
+
+list_failed = ["Math", "Literature", "English", "Physics", "Chemistry", "Biology",
+              "History", "Geography", "Civic Education"]
+
+counts_failed = [math_failed, literature_failed, english_failed, physics_failed, chemistry_failed,
+                 biology_failed, history_failed, geography_failed, civic_education_failed]
+
+plt.figure(figsize = (20, 15))
+sns.set(font_scale = 1.45)
+failed_grouped = plt.bar(list_failed, counts_failed, color = "#8296A2")
+
+for counts_nope in failed_grouped.patches:
+  list_height = counts_nope.get_height()
+  label_x = counts_nope.get_x() + counts_nope.get_width() / 2
+  label_y = counts_nope.get_y() / list_height + list_height
+  plt.text(label_x, label_y, s = f"{list_height:}", ha='center', va='bottom', color = "black", size = 15)
+
+plt.xlabel("Subjects", fontsize = 22.5)
+plt.ylabel("Occurences", fontsize = 22.5)
+plt.title("Failure Point Distributions", fontsize = 22.5)
