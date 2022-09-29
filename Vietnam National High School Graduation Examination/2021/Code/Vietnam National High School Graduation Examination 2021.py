@@ -160,6 +160,17 @@ labels_10_score = ["Math", "Literature", "English", "Physics", "Chemistry", "Bio
 counts_10_score = [math_10_score, literature_10_score, english_10_score, physics_10_score, chemistry_10_score,
                     biology_10_score, history_10_score, geography_10_score, civic_education_10_score]
 
+print("Number of examniee take 10 score Math papers:", math_10_score)
+print("Number of examniee take 10 score Literature papers:", literature_10_score)
+print("Number of examniee take 10 score English papers:", english_10_score)
+print("Number of examniee take 10 score Physics papers:", physics_10_score)
+print("Number of examniee take 10 score Chemistry papers:", chemistry_10_score)
+print("Number of examniee take 10 score Biology papers:", biology_10_score)
+print("Number of examniee take 10 score History papers:", history_10_score)
+print("Number of examniee take 10 score Geography papers:", geography_10_score)
+print("Number of examniee take 10 score Civic Education papers:", civic_education_10_score)
+
+# Visualization for score maximum
 plt.figure(figsize = (20, 15))
 sns.set(font_scale = 1.35)
 score_10_grouped = plt.bar(labels_10_score, counts_10_score, color = "#00A3FF")
@@ -173,16 +184,6 @@ for counts_10 in score_10_grouped.patches:
 plt.xlabel("Subjects")
 plt.ylabel("Occurences")
 plt.title("10 Point Distributions")
-
-print("Number of examniee take 10 score Math papers:", math_10_score)
-print("Number of examniee take 10 score Literature papers:", literature_10_score)
-print("Number of examniee take 10 score English papers:", english_10_score)
-print("Number of examniee take 10 score Physics papers:", physics_10_score)
-print("Number of examniee take 10 score Chemistry papers:", chemistry_10_score)
-print("Number of examniee take 10 score Biology papers:", biology_10_score)
-print("Number of examniee take 10 score History papers:", history_10_score)
-print("Number of examniee take 10 score Geography papers:", geography_10_score)
-print("Number of examniee take 10 score Civic Education papers:", civic_education_10_score)
 
 # Count of the current of English score
 plt.figure(figsize = (28, 20))
