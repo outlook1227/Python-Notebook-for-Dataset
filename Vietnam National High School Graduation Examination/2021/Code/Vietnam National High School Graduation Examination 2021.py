@@ -218,6 +218,22 @@ plt.xlabel("Occurrences", fontsize = 20.5)
 plt.ylabel("Score", fontsize = 20.5)
 plt.title("History Score Distribution", fontsize = 22.5)
 
+# Count of the current of Geography score
+plt.figure(figsize = (28, 20))
+sns.set(font_scale = 1.45)
+geography_sns = sns.countplot(examination_dataset.Geography)
+geography_sns.set_xticklabels(geography_sns.get_xticklabels(), rotation = 45)
+
+for counts in geography_sns.patches:
+  height = counts.get_height()
+  label_x = counts.get_x() + counts.get_width() / 2
+  label_y = counts.get_y() / height + height
+  plt.text(label_x, label_y, s = f"{height:}", ha='center', va='bottom', color = "black", size = 15, rotation = 90)
+
+plt.xlabel("Occurrences", fontsize = 20.5)
+plt.ylabel("Score", fontsize = 20.5)
+plt.title("Geography Score Distribution", fontsize = 22.5)
+
 # Count the examiee has failed for Graduation Examination
 math_failed = sum(examination_dataset.Math <= 1.0)
 literature_failed = sum(examination_dataset.Literature <= 1.0)
