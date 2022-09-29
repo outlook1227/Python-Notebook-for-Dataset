@@ -104,6 +104,27 @@ literature_papers
 literature_dataset_cleaned = literature_papers.dropna()
 literature_dataset_cleaned
 
+# History
+history_papers = examination_dataset[["History"]]
+history_papers
+
+history_dataset_cleaned = history_papers.dropna()
+history_dataset_cleaned
+
+# Geography
+geography_papers = examination_dataset[["Geography"]]
+geography_papers
+
+geography_dataset_cleaned = geography_papers.dropna()
+geography_dataset_cleaned
+
+# Civic Education
+civic_education_papers = examination_dataset[["Civic_Education"]]
+civic_education_papers
+
+civic_education_dataset_cleaned = civic_education_papers.dropna()
+civic_education_dataset_cleaned
+
 "Calculate the GPA of papers in Graduation Examination"
 
 # Average of each papers
@@ -125,7 +146,36 @@ print("The GPA of Literature: ", round(literature_average, 2))
 print("The GPA of History: ", round(history_average, 2))
 print("The GPA of Geography: ", round(geography_average, 2))
 print("The GPA of Civic Education: ", round(civic_education_average, 2))
-"Count the none-null value in Social Sciene, Natural Science, and null values"
+
+# Round the score to the 2nd point
+math_round_score = round(math_average, 2)
+physics_round_score =  round(physics_average, 2)
+chemistry_round_score = round(chemistry_average, 2)
+biology_round_score = round(biology_average, 2)
+english_round_score = round(english_average, 2)
+literature_round_score = round(literature_average, 2)
+history_round_score = round(history_average, 2)
+geography_round_score = round(geography_average, 2)
+civic_education_round_score = round(civic_education_average, 2)
+
+labels_average = ["Math", "Literature", "English", "Physics", "Chemistry", "Biology", "History",
+                    "Geography", "Civic Education"]
+counts_average_round = [math_round_score, literature_round_score, english_round_score, physics_round_score, chemistry_round_score,
+                        biology_round_score, history_round_score, geography_round_score, civic_education_round_score]
+
+plt.figure(figsize = (20, 15))
+sns.set(font_scale = 1.35)
+score_average = plt.bar(labels_average, counts_average_round, color = "#00FFB4")
+
+for counts_10 in score_average.patches:
+  height = counts_10.get_height()
+  label_x = counts_10.get_x() + counts_10.get_width() / 2
+  label_y = counts_10.get_y() / height + height
+  plt.text(label_x, label_y, s = f"{height:}", ha='center', va='bottom', color = "black", size = 15)
+
+plt.xlabel("Subjects")
+plt.ylabel("Occurences")
+plt.title("GPA for each papers")
 
 "Count the none-null value in Social Sciene, Natural Science, and null values"
 # Natural Science
@@ -218,6 +268,32 @@ plt.xlabel("Score", fontsize = 20.5)
 plt.ylabel("Occurrences", fontsize = 20.5)
 plt.title("Math Score Distribution", fontsize = 22.5)
 
+# Count the occurence of Literature score
+## Literature is conducted as an essay exam so its point unit is 0.25
+x = 0.0
+lit_score = []
+lit_occurences = []
+
+while (x <= 10.0):
+  lit_score.append(x)
+  if (x in examination_dataset.Literature.values):
+    lit_count = examination_dataset.Literature.value_counts()[x].item()
+    
+    lit_occurences.append(lit_count)
+    x = x + 0.25
+  else:
+    
+    lit_occurences.append(0)
+    x = x + 0.25
+
+#Literature score distribution
+fig, ax = plt.subplots(figsize = (28, 20))
+plt.bar(lit_score, lit_occurences, color = "#FF2AD6", edgecolor = "#000000", width = 0.2)
+plt.title("Literature Score Distribution", fontsize = 22.5)
+plt.xlabel("Score", fontsize = 20.5)
+plt.ylabel("Occurences", fontsize = 20.5)
+plt.show()
+
 # Count the occurence of English score
 plt.figure(figsize = (28, 20))
 sns.set(font_scale = 1.5)
@@ -292,6 +368,22 @@ for counts in geography_sns.patches:
 plt.xlabel("Score", fontsize = 20.5)
 plt.ylabel("Occurrences", fontsize = 20.5)
 plt.title("Geography Score Distribution", fontsize = 22.5)
+
+# Count the occurence of Civic Education score
+plt.figure(figsize = (28, 20))
+sns.set(font_scale = 1.45)
+civic_education_sns = sns.countplot(examination_dataset.Civic_Education)
+civic_education_sns.set_xticklabels(civic_education_sns.get_xticklabels(), rotation = 45)
+
+for counts_civic in civic_education_sns.patches:
+  list_height_civic = counts_civic.get_height()
+  label_x = counts_civic.get_x() + counts_civic.get_width() / 2
+  label_y = counts_civic.get_y() / list_height_civic + list_height_civic
+  plt.text(label_x, label_y, s = f"{list_height_civic:}", ha='center', va='bottom', color = "black", size = 15, rotation = 90)
+
+plt.xlabel("Score", fontsize = 20.5)
+plt.ylabel("Occurrences", fontsize = 20.5)
+plt.title("Civic Education Score Distribution", fontsize = 22.5)
 
 # Count the examiee has failed for Graduation Examination
 math_failed = sum(examination_dataset.Math <= 1.0)
