@@ -126,6 +126,24 @@ print("Social Science:", sum_of_SS)
 sum_of_Null = sum(examination_dataset.id_examinee >= 0) - sum_of_NS - sum_of_SS
 print("Null:", sum_of_Null)
 
+# Bar chart for combination exam selection
+labels = ["Social Science", "Natural Science", "Null"]
+count = [sum_of_SS, sum_of_NS, sum_of_Null]
+colors = ["#0AFF3F", "#059DF3" ,"#939393"]
+
+plt.figure(figsize = (15, 10))
+counts_grouped = plt.bar(labels, count, color = colors)
+
+for counts in counts_grouped.patches:
+  bar_height = counts.get_height()
+  label_x = counts.get_x() + counts.get_width() / 2
+  label_y = counts.get_y() / bar_height + bar_height
+  plt.text(label_x, label_y, s = f"{bar_height:}", ha='center', va='bottom', color = "black", size = 15)
+
+plt.xlabel("Combination")
+plt.ylabel("Number of students took the exam")
+plt.title("Bar Chart of Combination Exam Selection")
+
 # Count the number has score 10
 math_10_score = sum(examination_dataset.Math == 10)
 literature_10_score = sum(examination_dataset.Literature == 10)
