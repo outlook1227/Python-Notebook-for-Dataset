@@ -376,11 +376,11 @@ sns.set(font_scale = 1.45)
 civic_education_sns = sns.countplot(examination_dataset.Civic_Education)
 civic_education_sns.set_xticklabels(civic_education_sns.get_xticklabels(), rotation = 45)
 
-for counts_civic in civic_education_sns.patches:
-  list_height_civic = counts_civic.get_height()
-  label_x = counts_civic.get_x() + counts_civic.get_width() / 2
-  label_y = counts_civic.get_y() / list_height_civic + list_height_civic
-  plt.text(label_x, label_y, s = f"{list_height_civic:}", ha='center', va='bottom', color = "black", size = 15, rotation = 90)
+for counts in civic_education_sns.patches:
+  height = counts.get_height()
+  label_x = counts.get_x() + counts.get_width() / 2
+  label_y = counts.get_y() / height + height
+  plt.text(label_x, label_y, s = f"{height:}", ha='center', va='bottom', color = "black", size = 15, rotation = 90)
 
 plt.xlabel("Score", fontsize = 20.5)
 plt.ylabel("Occurrences", fontsize = 20.5)
