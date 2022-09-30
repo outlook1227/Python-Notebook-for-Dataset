@@ -237,6 +237,7 @@ for counts_10 in score_10_grouped.patches:
 plt.xlabel("Subjects")
 plt.ylabel("Occurences")
 plt.title("10 Point Distributions")
+
 # Visualization for score maximum
 plt.figure(figsize = (20, 15))
 sns.set(font_scale = 1.35)
@@ -286,7 +287,7 @@ while (x <= 10.0):
     lit_occurences.append(0)
     x = x + 0.25
 
-#Literature score distribution
+# Literature score distribution
 fig, ax = plt.subplots(figsize = (28, 20))
 plt.bar(lit_score, lit_occurences, color = "#FF2AD6", edgecolor = "#000000", width = 0.2)
 plt.title("Literature Score Distribution", fontsize = 22.5)
