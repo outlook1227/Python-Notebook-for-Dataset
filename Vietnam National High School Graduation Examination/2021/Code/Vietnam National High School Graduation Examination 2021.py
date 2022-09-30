@@ -1,4 +1,5 @@
-"This code programming is written and update with matplotlib version 3.5.3, before you implement, you install matplotlib version 3.5.3"
+"This code programming is written and update with matplotlib version 3.5.3"
+"You should update matplotlib version 3.5.3 and after updating the package, you restart or run code again"
 
 # Import the libraries
 import matplotlib.pyplot as plt
