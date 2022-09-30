@@ -1,11 +1,16 @@
 "This code programming is written and update with matplotlib version 3.5.3"
 "You should update matplotlib version 3.5.3 and after updating the package, you restart or run code again"
+"Using the package code !pip install matplotlib --upgrade in Python Notebook (Maybe using Google Colaboratory or CMD (Windows or Macbook) with Python Interface"
 
 # Import the libraries
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 import numpy as np
+
+# Check version of the package matplotlib
+import matplotlib
+print('matplotlib: {}'.format(matplotlib.__version__))
 
 # Read and show the dataset
 examination_dataset = pd.read_csv("/content/VN_Graduation_Examination_2021.csv")
@@ -256,6 +261,10 @@ plt.xlabel("Subjects")
 plt.ylabel("Occurences")
 plt.title("10 Point Distributions")
 
+# Sum the examiee has taken 10 score
+examinees_10_score = np.sum(counts_10_score)
+print("Sum of examiee has taken 10 score are:", examinees_10_score)
+
 # Count the occurence of Math score
 plt.figure(figsize = (28, 20))
 sns.set(font_scale = 1.5)
@@ -422,6 +431,10 @@ for counts_nope in failed_grouped.patches:
 plt.xlabel("Subjects", fontsize = 22.5)
 plt.ylabel("Occurences", fontsize = 22.5)
 plt.title("Failure Point Distributions", fontsize = 22.5)
+
+# Sum the examiee has failed score
+examinees_failure_score = np.sum(counts_failed)
+print("Sum of examinees has been taken failure score are:", examinees_failure_score)
 
 # Count the examiiees has selected the foregin language others (Expect English)
 sum_of_french = sum(examination_dataset.French >= 0)
