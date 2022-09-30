@@ -271,25 +271,33 @@ plt.title("Math Score Distribution", fontsize = 22.5)
 
 # Count the occurence of Literature score
 ## Literature is conducted as an essay exam so its point unit is 0.25
-x = 0.0
-lit_score = []
-lit_occurences = []
+x = 0
+list_score = []
+list_occurences = []
 
-while (x <= 10.0):
-  lit_score.append(x)
+while (x <= 10):
+  list_score.append(x)
   if (x in examination_dataset.Literature.values):
-    lit_count = examination_dataset.Literature.value_counts()[x].item()
+    list_count = examination_dataset.Literature.value_counts()[x].item()
     
-    lit_occurences.append(lit_count)
-    x = x + 0.25
+    list_occurences.append(list_count)
+    x = round(x + 0.25, 2)
   else:
     
-    lit_occurences.append(0)
-    x = x + 0.25
+    list_occurences.append(0)
+    x = round(x + 0.25, 2)
 
 # Literature score distribution
 fig, ax = plt.subplots(figsize = (28, 20))
-plt.bar(lit_score, lit_occurences, color = "#FF2AD6", edgecolor = "#000000", width = 0.2)
+literature_sns = sns.barplot(lit_score, list_occurences)
+literature_sns.set_xticklabels(literature_sns.get_xticklabels(), rotation = 45)
+
+for counts in literature_sns.patches:
+  height = counts.get_height()
+  label_x = counts.get_x() + counts.get_width() / 2
+  label_y = counts.get_y() / height + height
+  plt.text(label_x, label_y, s = f"{height}", ha='center', va='bottom', color = "black", size = 15, rotation = 90)
+
 plt.title("Literature Score Distribution", fontsize = 22.5)
 plt.xlabel("Score", fontsize = 20.5)
 plt.ylabel("Occurences", fontsize = 20.5)
