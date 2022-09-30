@@ -1,3 +1,5 @@
+"This code programming is written and update with matplotlib version 3.5.3, before you implement, you install matplotlib version 3.5.3"
+
 # Import the libraries
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -289,14 +291,9 @@ while (x <= 10):
 
 # Literature score distribution
 fig, ax = plt.subplots(figsize = (28, 20))
-literature_sns = sns.barplot(lit_score, list_occurences)
+literature_sns = sns.barplot(x = list_score, y = list_occurences,ax = ax)
 literature_sns.set_xticklabels(literature_sns.get_xticklabels(), rotation = 45)
-
-for counts in literature_sns.patches:
-  height = counts.get_height()
-  label_x = counts.get_x() + counts.get_width() / 2
-  label_y = counts.get_y() / height + height
-  plt.text(label_x, label_y, s = f"{height}", ha='center', va='bottom', color = "black", size = 15, rotation = 90)
+ax.bar_label(ax.containers[0], rotation = 90)
 
 plt.title("Literature Score Distribution", fontsize = 22.5)
 plt.xlabel("Score", fontsize = 20.5)
