@@ -423,7 +423,7 @@ plt.xlabel("Subjects", fontsize = 22.5)
 plt.ylabel("Occurences", fontsize = 22.5)
 plt.title("Failure Point Distributions", fontsize = 22.5)
 
-# Count the examiiees has selected the foregin language others
+# Count the examiiees has selected the foregin language others (Expect English)
 sum_of_french = sum(examination_dataset.French >= 0)
 sum_of_russian = sum(examination_dataset.Russian >= 0)
 sum_of_chinese = sum(examination_dataset.Chinese >= 0)
