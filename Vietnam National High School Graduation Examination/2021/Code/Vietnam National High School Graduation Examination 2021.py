@@ -1,6 +1,7 @@
 "This code programming is written and update with matplotlib version 3.5.3"
 "You should update matplotlib version 3.5.3 and after updating the package, you restart or run code again"
 "Using the package code !pip install matplotlib --upgrade in Python Notebook (Maybe using Google Colaboratory or CMD (Windows or Macbook) with Python Interface"
+"In my account Google Colabbortory the matplotlib package version 3.2.2"
 
 # Import the libraries
 import matplotlib.pyplot as plt
@@ -215,6 +216,12 @@ for counts in counts_grouped.patches:
 plt.xlabel("Combination")
 plt.ylabel("Number of students took the exam")
 plt.title("Bar Chart of Combination Exam Selection")
+
+# Create pie chart (Percent for the Combination Examination)
+plt.figure(figsize = (20, 15))
+plt.pie(count, labels = labels, colors = colors, autopct='%0.2f%%')
+plt.title("The Pie Chart of the Combination Examination")
+plt.show()
 
 # Count the number has score 10
 math_10_score = sum(examination_dataset.Math == 10)
@@ -431,6 +438,16 @@ for counts_nope in failed_grouped.patches:
 plt.xlabel("Subjects", fontsize = 22.5)
 plt.ylabel("Occurences", fontsize = 22.5)
 plt.title("Failure Point Distributions", fontsize = 22.5)
+
+# Sum the examiee has failed for Graduation Examination
+examinees_failure_score = np.sum(counts_failed)
+print("Sum of examinees has been taken failure score are:", examinees_failure_score)
+
+# Create pie chart (Failure Score)
+plt.figure(figsize = (20, 15))
+plt.pie(counts_failed, labels = list_failed, autopct='%0.2f%%')
+plt.title("The Pie Chart of Failure Score")
+plt.show()
 
 # Sum the examiee has failed score
 examinees_failure_score = np.sum(counts_failed)
