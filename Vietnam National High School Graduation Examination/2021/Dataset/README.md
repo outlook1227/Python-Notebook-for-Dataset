@@ -7,3 +7,4 @@ The dataset of High School Graduation has 934k pieces of information (the datase
 With the freelance examinees, they must select and compete with 3 papers (minimum)
 
 Source dataset: Kaggle
+Please visit: https://www.kaggle.com/datasets/tdbui1209/vietnam-national-hs-graduation-examination-2021?select=update.csv
