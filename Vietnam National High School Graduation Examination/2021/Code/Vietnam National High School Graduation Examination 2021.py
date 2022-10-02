@@ -239,30 +239,12 @@ labels_10_score = ["Math", "Literature", "English", "Physics", "Chemistry", "Bio
 counts_10_score = [math_10_score, literature_10_score, english_10_score, physics_10_score, chemistry_10_score,
                     biology_10_score, history_10_score, geography_10_score, civic_education_10_score]
 
-plt.figure(figsize = (20, 15))
-sns.set(font_scale = 1.35)
-score_10_grouped = plt.bar(labels_10_score, counts_10_score, color = "#00A3FF")
-
-for counts_10 in score_10_grouped.patches:
-  height = counts_10.get_height()
-  label_x = counts_10.get_x() + counts_10.get_width() / 2
-  label_y = counts_10.get_y() / height + height
-  plt.text(label_x, label_y, s = f"{height:}", ha='center', va='bottom', color = "black", size = 15)
-
-plt.xlabel("Subjects")
-plt.ylabel("Occurences")
-plt.title("10 Point Distributions")
-
 # Visualization for score maximum
-plt.figure(figsize = (20, 15))
+fig, ax = plt.subplots(figsize = (20, 15))
 sns.set(font_scale = 1.35)
-score_10_grouped = plt.bar(labels_10_score, counts_10_score, color = "#00A3FF")
-
-for counts_10 in score_10_grouped.patches:
-  height = counts_10.get_height()
-  label_x = counts_10.get_x() + counts_10.get_width() / 2
-  label_y = counts_10.get_y() / height + height
-  plt.text(label_x, label_y, s = f"{height:}", ha='center', va='bottom', color = "black", size = 15)
+score_10_grouped = sns.barplot(labels_10_score, counts_10_score)
+score_10_grouped.set_xticklabels(score_10_grouped.get_xticklabels())
+ax.bar_label(ax.containers[0])
 
 plt.xlabel("Subjects")
 plt.ylabel("Occurences")
@@ -465,7 +447,7 @@ counts_foreign_languages = [sum_of_french, sum_of_russian, sum_of_chinese, sum_o
 
 plt.figure(figsize = (20, 15))
 sns.set(font_scale = 1.45)
-foreign_languages = plt.bar(labels_foreign_languages, counts_foreign_languages, color = "#51CEEE")
+foreign_languages = plt.bar(labels_foreign_languages, counts_foreign_languages, color = "#1283FE")
 
 for counts_other_language in foreign_languages.patches:
   height = counts_other_language.get_height()
