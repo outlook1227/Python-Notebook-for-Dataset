@@ -399,9 +399,9 @@ plt.title("Civic Education Score Distribution", fontsize = 22.5)
 "8: Density of Score"
 # Density for 3 compulsory independent papers Score
 fig, axes = plt.subplots(1, 3, figsize = (18, 8))
-sns.distplot(physics_dataset_cleaned["Physics"], ax = axes[0])
-sns.distplot(chemistry_dataset_cleaned["Chemistry"], ax = axes[1])
-sns.distplot(biology_dataset_cleaned["Biology"], ax = axes[2])
+sns.distplot(math_dataset_cleaned["Math"], ax = axes[0])
+sns.distplot(literature_dataset_cleaned["Literature"], ax = axes[1])
+sns.distplot(english_dataset_cleaned["English"], ax = axes[2])
 fig.suptitle("Density for the Compulsory Papers", fontsize = 18)
 
 # Density for Social Science Score
