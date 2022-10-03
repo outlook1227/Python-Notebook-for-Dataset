@@ -1,3 +1,4 @@
+"""1. ATTENTION BEFORE IMPLEMENT FOR PYTHON PROGRAMMINIG"""
 "This code programming is written and update with matplotlib version 3.5.3"
 "You should update matplotlib version 3.5.3 and after updating the package, you restart or run code again"
 "Using the package code !pip install matplotlib --upgrade in Python Notebook (Maybe using Google Colaboratory or CMD (Windows or Macbook) with Python Interface"
@@ -17,13 +18,13 @@ print('matplotlib: {}'.format(matplotlib.__version__))
 examination_dataset = pd.read_csv("/content/VN_Graduation_Examination_2021.csv")
 examination_dataset
 
-"Data missing and Data Cleaning"
+"1: Data missing and Data Cleaning"
 # Check missing, outlier, information in the dataset
 examination_dataset.isna().sum()
 examination_dataset.info()
 examination_dataset.describe()
 
-"Visualization for the information of dataset with graph"
+"3: Visualization for the information of dataset with graph"
 # Check heatmap for the dataset
 plt.figure(figsize = (20, 15))
 sns.set(font_scale = 1.3)
@@ -70,7 +71,7 @@ boxplot_dataset.set_ylabel("Score")
 plt.title("Boxplot for Foreign Languages")
 plt.show()
 
-"Dropping and Cleaning for the Dataset"
+"4: Dropping and Cleaning for the Dataset"
 # Math
 math_papers = examination_dataset[["Math"]]
 math_papers
@@ -134,8 +135,8 @@ civic_education_papers
 civic_education_dataset_cleaned = civic_education_papers.dropna()
 civic_education_dataset_cleaned
 
+"5: Visualization for the average score for each papers"
 "Calculate the GPA of papers in Graduation Examination"
-
 # Average of each papers
 math_average = np.average(math_dataset_cleaned)
 physics_average = np.average(physics_dataset_cleaned)
@@ -186,6 +187,7 @@ plt.xlabel("Subjects")
 plt.ylabel("Occurences")
 plt.title("GPA for each papers")
 
+"6: Visualiaztion the Combination for Graduation Examination"
 "Count the none-null value in Social Sciene, Natural Science, and null values"
 # Natural Science
 sum_of_NS = sum((examination_dataset.Physics >= 0) | (examination_dataset.Chemistry >= 0) | (examination_dataset.Biology >= 0))
@@ -223,6 +225,8 @@ plt.pie(count, labels = labels, colors = colors, autopct='%0.2f%%')
 plt.title("The Pie Chart of the Combination Examination")
 plt.show()
 
+"7: Visualization for the examiee has taken 10 points in papers"
+
 # Count the number has score 10
 math_10_score = sum(examination_dataset.Math == 10)
 literature_10_score = sum(examination_dataset.Literature == 10)
@@ -253,6 +257,8 @@ plt.title("10 Point Distributions")
 # Sum the examiee has taken 10 score
 examinees_10_score = np.sum(counts_10_score)
 print("Sum of examiee has taken 10 score are:", examinees_10_score)
+
+"8: Visualization for the Distribution of score with each papers"
 
 # Count the occurence of Math score
 plt.figure(figsize = (28, 20))
@@ -389,6 +395,30 @@ for counts in civic_education_sns.patches:
 plt.xlabel("Score", fontsize = 20.5)
 plt.ylabel("Occurrences", fontsize = 20.5)
 plt.title("Civic Education Score Distribution", fontsize = 22.5)
+
+"8: Density of Score"
+# Density for 3 compulsory independent papers Score
+fig, axes = plt.subplots(1, 3, figsize = (18, 8))
+sns.distplot(physics_dataset_cleaned["Physics"], ax = axes[0])
+sns.distplot(chemistry_dataset_cleaned["Chemistry"], ax = axes[1])
+sns.distplot(biology_dataset_cleaned["Biology"], ax = axes[2])
+fig.suptitle("Density for the Compulsory Papers", fontsize = 18)
+
+# Density for Social Science Score
+fig, axes = plt.subplots(1, 3, figsize = (18, 8))
+sns.distplot(physics_dataset_cleaned["Physics"], ax = axes[0])
+sns.distplot(chemistry_dataset_cleaned["Chemistry"], ax = axes[1])
+sns.distplot(biology_dataset_cleaned["Biology"], ax = axes[2])
+fig.suptitle("Density for the Natural Science Combinations", fontsize = 18)
+
+# Density for Social Science Score
+fig, axes = plt.subplots(1, 3, figsize = (18, 8))
+sns.distplot(history_dataset_cleaned["History"], ax = axes[0])
+sns.distplot(geography_dataset_cleaned["Geography"] ,ax = axes[1])
+sns.distplot(civic_education_dataset_cleaned["Civic_Education"] ,ax = axes[2])
+fig.suptitle("Density for the Social Science Combinations", fontsize = 18)
+
+"9: Visualization for the examiee has failed in papers"
 
 # Count the examiee has failed for Graduation Examination
 math_failed = sum(examination_dataset.Math <= 1.0)
