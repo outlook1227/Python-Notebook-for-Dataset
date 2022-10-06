@@ -60,3 +60,19 @@ for counts in count_process_brand.patches:
 plt.xlabel("Processor Brand")
 plt.ylabel("Count")
 plt.show()
+
+# 3: Count the processor name of computer
+plt.figure(figsize = (23, 15))
+sns.set(font_scale = 1.4)
+count_process_name = sns.countplot(laptop_dataset["processor_name"])
+count_process_name.set_xticklabels(count_process_name.get_xticklabels(), rotation = 90)
+
+for counts in count_process_name.patches:
+  bar_height = counts.get_height()
+  label_x = counts.get_x() + counts.get_width() / 2
+  label_y = counts.get_y() / bar_height + bar_height
+  plt.text(label_x, label_y, s = f"{bar_height:}", ha='center', va='bottom', color = "black", size = 15)
+
+plt.xlabel("Processor Name")
+plt.ylabel("Count")
+plt.show()
