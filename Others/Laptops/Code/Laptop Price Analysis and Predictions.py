@@ -96,3 +96,20 @@ plt.xlabel("Processor Generations")
 plt.ylabel("Count")
 plt.title("The list of Processor Generations")
 plt.show()
+
+# 5: Count the RAM GB of brand computer
+plt.figure(figsize = (20, 15))
+sns.set(font_scale = 1.35)
+count_process_gnrtn = sns.countplot(laptop_dataset["ram_gb"].str.replace('GB GB','GB'))
+count_process_gnrtn.set_xticklabels(count_process_gnrtn.get_xticklabels())
+
+for counts in count_process_gnrtn.patches:
+  bar_height = counts.get_height()
+  label_x = counts.get_x() + counts.get_width() / 2
+  label_y = counts.get_y() / bar_height + bar_height
+  plt.text(label_x, label_y, s = f"{bar_height:}", ha='center', va='bottom', color = "black", size = 15)
+
+plt.xlabel("RAM - GB")
+plt.ylabel("Count")
+plt.title("Random Access Memory")
+plt.show()
