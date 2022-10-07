@@ -113,3 +113,54 @@ plt.xlabel("RAM - GB")
 plt.ylabel("Count")
 plt.title("Random Access Memory")
 plt.show()
+
+# 6: Count number of RAM Type
+plt.figure(figsize = (20, 15))
+sns.set(font_scale = 1.35)
+count_ram_type = sns.countplot(laptop_dataset["ram_type"])
+count_ram_type.set_xticklabels(count_ram_type.get_xticklabels())
+
+for counts in count_ram_type.patches:
+  bar_height = counts.get_height()
+  label_x = counts.get_x() + counts.get_width() / 2
+  label_y = counts.get_y() / bar_height + bar_height
+  plt.text(label_x, label_y, s = f"{bar_height:}", ha='center', va='bottom', color = "black", size = 15)
+
+plt.xlabel("RAM Type")
+plt.ylabel("Count")
+plt.title("The Type of Random Access Memory")
+plt.show()
+
+# 7: Count number of SSD Hardware
+plt.figure(figsize = (20, 15))
+sns.set(font_scale = 1.35)
+count_ssd = sns.countplot(laptop_dataset["ssd"])
+count_ssd.set_xlabel(count_ssd.get_xticklabels())
+
+for counts in count_ssd.patches:
+  bar_height = counts.get_height()
+  label_x = counts.get_x() + counts.get_width() / 2
+  label_y = counts.get_y() / bar_height + bar_height
+  plt.text(label_x, label_y, s = f"{bar_height:}", ha='center', va='bottom', color = "black", size = 15)
+
+plt.xlabel("SSD - GB")
+plt.ylabel("Count")
+plt.title("SSD Hardware")
+plt.show()
+
+# 8: Count number of HDD Hardware
+plt.figure(figsize = (20, 15))
+sns.set(font_scale = 1.35)
+count_ssd = sns.countplot(laptop_dataset["hdd"])
+count_ssd.set_xlabel(count_ssd.get_xticklabels())
+
+for counts in count_ssd.patches:
+  bar_height = counts.get_height()
+  label_x = counts.get_x() + counts.get_width() / 2
+  label_y = counts.get_y() / bar_height + bar_height
+  plt.text(label_x, label_y, s = f"{bar_height:}", ha='center', va='bottom', color = "black", size = 15)
+
+plt.xlabel("HDD - GB")
+plt.ylabel("Count")
+plt.title("HDD Hardware")
+plt.show()
