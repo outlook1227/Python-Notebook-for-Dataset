@@ -10,3 +10,7 @@ The Laptop Dataset contains 23 features/attributes and 896 records. Since only o
 * **Processor Brand**: Manufacturer of the Processor
 * **Processor Name**:
 * **Processor Generation**:
+* **RAM GB**:
+* **RAM Type**:
+* **SSD**: The storage of SSD - Soild Stage Drive
+* **HDD**: The storage of HDD - Hard Disk Drive
