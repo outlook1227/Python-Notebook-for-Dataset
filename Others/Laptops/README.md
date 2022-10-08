@@ -8,3 +8,5 @@ The Laptop Dataset contains 23 features/attributes and 896 records. Since only o
 * **Brand**: Manufacturer of Laptop.
 * **Model**: Model name of Laptop
 * **Processor Brand**: Manufacturer of the Processor
+* **Processor Name**:
+* **Processor Generation**:
