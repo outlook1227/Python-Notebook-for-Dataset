@@ -14,3 +14,4 @@ The Laptop Dataset contains 23 features/attributes and 896 records. Since only o
 * **RAM Type**:
 * **SSD**: The storage of SSD - Soild Stage Drive
 * **HDD**: The storage of HDD - Hard Disk Drive
+* **Operating Systems**:
