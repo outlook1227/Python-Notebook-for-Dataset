@@ -198,3 +198,38 @@ plt.xlabel("Touchscreen")
 plt.ylabel("Count")
 plt.title("Touchscreen of Computer")
 plt.show()
+
+"Visualization for the price with component of computer"
+# The Computer Brand 
+plt.figure(figsize = (18, 12))
+brand_price = sns.boxplot(x = laptop_dataset["brand"], y = laptop_dataset["latest_price"], showfliers = False)
+brand_price.set_xticklabels(brand_price.get_xticklabels(), rotation = 90)
+plt.xlabel("Brand of Computer")
+plt.ylabel("Price")
+plt.show()
+
+# The Computer Brand Processor
+plt.figure(figsize = (18, 12))
+processor_brand_price = sns.boxplot(x = laptop_dataset["processor_brand"], y = laptop_dataset["latest_price"], showfliers = False)
+processor_brand_price.set_xticklabels(processor_brand_price.get_xticklabels())
+plt.xlabel("Processor Brand of Computer")
+plt.ylabel("Price")
+plt.show()
+
+# The Computer Operating Systems
+plt.figure(figsize = (18, 12))
+sns.set(font_scale = 1.35)
+os_price = sns.boxplot(x = laptop_dataset["os"], y = laptop_dataset["latest_price"], showfliers = False)
+os_price.set_xticklabels(processor_brand_price.get_xticklabels())
+plt.xlabel("Operating Systems")
+plt.ylabel("Price")
+plt.show()
+
+# The RAM Storage 
+plt.figure(figsize = (18, 12))
+sns.set(font_scale = 1.35)
+ram_price = sns.boxplot(x = laptop_dataset["ram_gb"], y = laptop_dataset["latest_price"], showfliers = False)
+ram_price.set_xticklabels(ram_price.get_xticklabels())
+plt.xlabel("RAM Storage")
+plt.ylabel("Price")
+plt.show()
