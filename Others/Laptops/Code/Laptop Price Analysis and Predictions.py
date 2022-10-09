@@ -234,10 +234,26 @@ plt.xlabel("RAM Storage")
 plt.ylabel("Price")
 plt.show()
 
-"Implement the Mean Squared Error (MSE) function to compute the loss of dataset"
+"Train data and test data"
+def train_test_split(x, y, train_size = 0.8):
+    # Set split data into training and set test
+    train_size = int(len(x1) * train_size)
+
+    x_train = x1[:train_size]
+    y_train = x2[:train_size]
+
+    x_test = x1[train_size:]
+    y_test = x2[train_size:]
+
+    return x_train, y_train, x_test, y_test
+
+"Implement the function to compute the loss and error of dataset"
+# Mean Squared Error (MSE)
 def mean_squared_error(y_prediction, y_true):
   MSE = np.average((y_true - y_prediction) ** 2)
   return MSE
 
-def train_test_split(x, y, train_size = 0.8):
-  return
+# Mean Absolute Error (MAE)
+def mean_absolute_error(y_prediction, y_true):
+  MAE = np.average(np.abs(y_prediction - y_true))
+  return MAE
