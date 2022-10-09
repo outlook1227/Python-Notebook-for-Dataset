@@ -233,3 +233,11 @@ ram_price.set_xticklabels(ram_price.get_xticklabels())
 plt.xlabel("RAM Storage")
 plt.ylabel("Price")
 plt.show()
+
+"Implement the Mean Squared Error (MSE) function to compute the loss of dataset"
+def mean_squared_error(y_prediction, y_true):
+  MSE = np.average((y_true - y_prediction) ** 2)
+  return MSE
+
+def train_test_split(x, y, train_size = 0.8):
+  return
