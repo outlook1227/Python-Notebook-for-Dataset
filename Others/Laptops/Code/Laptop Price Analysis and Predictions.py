@@ -164,3 +164,37 @@ plt.xlabel("HDD - GB")
 plt.ylabel("Count")
 plt.title("HDD Hardware")
 plt.show()
+
+# 9: Operating Systems (OS) of Computer
+plt.figure(figsize = (18, 12))
+sns.set(font_scale = 1.35)
+count_os = sns.countplot(laptop_dataset["os"])
+count_os.set_xlabel(count_os.get_xticklabels())
+
+for counts in count_os.patches:
+  bar_height = counts.get_height()
+  label_x = counts.get_x() + counts.get_width() / 2
+  label_y = counts.get_y() / bar_height + bar_height
+  plt.text(label_x, label_y, s = f"{bar_height:}", ha='center', va='bottom', color = "black", size = 15)
+
+plt.xlabel("OS")
+plt.ylabel("Count")
+plt.title("Operating Systems of Computer")
+plt.show()
+
+# 10: Touchscreen of Computers
+plt.figure(figsize = (18, 12))
+sns.set(font_scale = 1.35)
+count_touchscreen = sns.countplot(laptop_dataset["Touchscreen"])
+count_touchscreen.set_xlabel(count_touchscreen.get_xticklabels())
+
+for counts in count_touchscreen.patches:
+  bar_height = counts.get_height()
+  label_x = counts.get_x() + counts.get_width() / 2
+  label_y = counts.get_y() / bar_height + bar_height
+  plt.text(label_x, label_y, s = f"{bar_height:}", ha='center', va='bottom', color = "black", size = 15)
+
+plt.xlabel("Touchscreen")
+plt.ylabel("Count")
+plt.title("Touchscreen of Computer")
+plt.show()
