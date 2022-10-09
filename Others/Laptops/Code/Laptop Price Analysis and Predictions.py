@@ -46,7 +46,7 @@ plt.ylabel("Count")
 plt.title("The list of Brand Computer in dataset")
 plt.show()
 
-# 2: Count of the processor band of computer
+# 2: Count of the processor brand of computer
 plt.figure(figsize = (20, 15))
 sns.set(font_scale = 1.35)
 count_process_brand = sns.countplot(laptop_dataset["processor_brand"])
