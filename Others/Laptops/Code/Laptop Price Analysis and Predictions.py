@@ -234,6 +234,15 @@ plt.xlabel("RAM Storage")
 plt.ylabel("Price")
 plt.show()
 
+# The RAM Type
+plt.figure(figsize = (18, 12))
+sns.set(font_scale = 1.35)
+ram_price = sns.boxplot(x = laptop_dataset["ram_type"], y = laptop_dataset["latest_price"], showfliers = False)
+ram_price.set_xticklabels(ram_price.get_xticklabels())
+plt.xlabel("RAM Type")
+plt.ylabel("Price")
+plt.show()
+
 "Train data and test data"
 def train_test_split(x, y, train_size = 0.8):
     # Set split data into training and set test
