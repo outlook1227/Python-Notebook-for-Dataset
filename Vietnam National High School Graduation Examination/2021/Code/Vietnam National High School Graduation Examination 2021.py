@@ -18,7 +18,7 @@ print('matplotlib: {}'.format(matplotlib.__version__))
 examination_dataset = pd.read_csv("/content/VN_Graduation_Examination_2021.csv")
 examination_dataset
 
-"1: Data missing and Data Cleaning"
+"2: Data missing and Data Cleaning"
 # Check missing, outlier, information in the dataset
 examination_dataset.isna().sum()
 examination_dataset.info()
