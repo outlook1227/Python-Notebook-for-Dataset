@@ -11,7 +11,6 @@ import skfuzzy as fuzzy
 class SynthesizeWords(object):
     def __init__(self): 
         # Implement for Vietnamese (29 letters) in alphabet
-       
         self.vietnamese_alphabet = ["a", "ă", "â", "b", "c", "d", "đ", "e", "ê", "g", "h", "i", "k", "l", 
                                     "m", "n", "o", "ô", "ơ", "p", "q", "r", "s", "t", "u", "ư", "v", "x", "y"]
         
@@ -166,8 +165,8 @@ class SynthesizeWords(object):
             - one_hot_label: One hot array indicate position of word that has already modify, so this
             function only choose the word that do not has one hot label == 1
 
-        Return: A list of word segmentation has one words that replaced for type rhyme of 
-                the Vietnamese pronunciation including for diacritics and letters
+        Return: A list of word segmentation has one words that replaced for type rhyme of Vietnamese
+        pronunciation including for diacritics and letters
         """
         index = np.random.randint(0, len(one_hot_label))
         prevent_loop = 0
@@ -179,14 +178,14 @@ class SynthesizeWords(object):
 
         index_noise = index
         one_hot_label[index_noise] = 1
-        word_noise = letters[index_noise]
+        char_noise = letters[index_noise]
 
         rhyme = self.type_rhyme
         for char in rhyme.keys():
-            if char in word_noise:
+            if char in char_noise:
                 replaced = np.random.choice(a=rhyme[char])
-                word_noise = word_noise.replace(char, replaced)
-                letters[index_noise] = word_noise
+                char_noise = char_noise.replace(char, replaced)
+                letters[index_noise] = char_noise
                 break
 
         return True, letters, one_hot_label
@@ -433,8 +432,7 @@ class SynthesizeWords(object):
 
 synthesis = SynthesizeWords()
 # sentence = "Nguyễn Thuỳ Trang ứng tuyển vào cục trưởng cục tình báo TocoToco" 
-# sentence = "Trên thông thiên văn dưới tường địa lý"
-sentence = "Đời loài người này ngắn lắm"
+sentence = "Trên thông thiên văn dưới tường địa lý"
 for i in range(1, 11):
     print("Epoch for create noise:", i)
     noise_sentence = synthesis.noise_addition_text(sentence, percent_error = 0.45, num_type_error = 7)
