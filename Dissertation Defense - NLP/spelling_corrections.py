@@ -62,14 +62,14 @@ class Spell_Corrections(object):
         return ngrams(words.split(), n)
     
     def guess(self, n_gram):
-        # Model prediction for the word has given is true
+        # Model prediction for the word has corrected is true
         text = " ".join(n_gram)
         prediction = self.model.predict(np.array([self.encoder_data(text)]), verbose=0)
         return self.decoder_data(prediction[0]).strip('\x00')
 
     def correction(self, sentence):
         "Result the correction sentence from the model prediction"
-        # Checking for the sentence has information on the character
+        # Checking for the sentence has information in the character
         start_time = time.time()
         for i in sentence:
             if i not in self.accepted_char:
