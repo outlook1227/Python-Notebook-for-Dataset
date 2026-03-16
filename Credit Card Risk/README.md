@@ -36,7 +36,8 @@ Models were evaluated using metrics commonly used in **credit risk modeling**:
 - **Brier Score**
 - **Capture Rate**
 
-Best model performance - XGBoost (SMOTE)
+Best model performance - XGBoost (SMOTE):
+
 Test AUC ≈ 0.88
 KS ≈ 0.76
 
@@ -68,12 +69,13 @@ Python • Scikit-learn • LightGBM • XGBoost • SHAP • Pandas • NumPy �
 ---
 
 ## Project Workflow
-- EDA  
-- WOE / IV Feature Engineering  
-- Imbalance Handling (SMOTE / Class Weight)  
-- Model Training  
-- Model Evaluation (AUC / KS / PSI)  
-- Risk Segmentation  
-- SHAP Interpretability
+
+📊 EDA  
+⚙️ WOE / IV Feature Engineering  
+⚖️ Imbalance Handling (SMOTE / Class Weight)  
+🤖 Model Training  
+📈 Model Evaluation (AUC / KS / PSI)  
+🏷️ Risk Segmentation  
+🔍 SHAP Interpretability
 
 **Author:** Đỗ Đức Tiến
