@@ -361,9 +361,6 @@ class SynthesizeWords(object):
 
     def noise_addition_text(self, sentence, percent_error = 0.45, num_type_error = 7):
         ## Result the noise addition functionality has implemented in top line
-        ## Example the sentence in Vietnamese: Nguyễn Thuỳ Trang - Cục trưởng cục tình báo TocoToco
-        ## (English: Nguyễn Thuỳ Trang - Director of the TocoToco General Department of Intelligence)
-
         word_segmented = self.words_segmentation(sentence)
         one_hot_label = [0] * len(word_segmented)
 
