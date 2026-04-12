@@ -7,6 +7,10 @@ The workflow includes **feature engineering, model training, evaluation, risk se
 
 ---
 
+## Data source
+Link: https://www.kaggle.com/datasets/rikdifos/credit-card-approval-prediction
+
+---
 ## Methodology
 
 ### Feature Engineering
